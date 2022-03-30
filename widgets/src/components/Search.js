@@ -9,7 +9,11 @@ const Search = () => {
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      setDebouncedTerm(term);
+      if (term) {
+        setDebouncedTerm(term);
+      } else {
+        setDebouncedTerm('promise');
+      }
     },1000);
 
     return () => {
